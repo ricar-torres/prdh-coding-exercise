@@ -41,6 +41,8 @@
 2. **Run**:
     - Navigate to the root of the WebAPI project in the terminal.
     - Use the command `dotnet run` to start the application.
+		- Make sure the http://localhost:5000 is available.
+		- Wait a minute to make sure the webapi is ready.
 
 3. **Test WorkerTestLab**:
     - Once the application is running, the `WorkerTestLab` will automatically start and log its activities. Monitor the logs to ensure it's fetching and processing data correctly.
@@ -81,6 +83,7 @@ I hope this provides a comprehensive overview of the design and structure of the
    - Make sure you have Node.js and Angular CLI installed.
    - Navigate to the WebApp's root directory.
    - Run `npm install` to install all the necessary packages.
+	 - Modify environments.ts to the proper webapi url if it has been modified.
 
 2. **Run**:
    - Use the command `ng serve` to start the application.
