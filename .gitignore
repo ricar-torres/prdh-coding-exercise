@@ -1,0 +1,95 @@
+# ---- .NET Core / WebAPI ----
+
+## User-specific files
+*.rsuser
+*.user
+*.userosscache
+*.suo
+*.dbmdl
+*.dbproj.schemaview
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## VS Code directories
+.vscode/
+
+## Rider directories
+.idea/
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## VS Code directories
+.vscode/
+
+## Rider directories
+.idea/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## Windows files
+*.windows
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/*
+
+## Tye
+.tye/
+
+## Rider
+.idea/
+
+## Visual Studio for Mac
+.vscode/
+.vscode/*
+
+## Rider
+.idea/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# ---- Angular ----
+
+# See https://github.com/angular/angular/blob/master/.gitignore for more
+
+## compiled output
+/dist
+/tmp
+/out-tsc
+
+## dependencies
+/node_modules
+
+## IDE - VSCode
+.vscode/*
+
+## IDE - WebStorm/IntelliJ
+.idea/
+
+## logs
+npm-debug.log*
+yarn-error.log*
+
+## OS
+.DS_Store
+
+## Temporary files
+*.tmp
+*.temp
+
+## End of Angular .gitignore
+

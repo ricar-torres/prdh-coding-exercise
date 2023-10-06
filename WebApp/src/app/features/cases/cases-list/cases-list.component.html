@@ -1,0 +1,118 @@
+<mat-toolbar color="primary" class="md-tall">
+  <mat-toolbar-row>
+    <div class="flex h-32 pl-2.5">
+      <div class="flex items-center">PRDH Coding Exercise</div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="min-h-screen bg-gray-100">
+  <div class="w-4/5 mx-auto pt-10">
+    <mat-card>
+      <mat-card-header
+        class="sticky top-0 bg-white z-10 border-b border-gray-300"
+      >
+        <form [formGroup]="form">
+          <mat-form-field>
+            <mat-label>Date Range</mat-label>
+            <mat-date-range-input
+              [rangePicker]="picker"
+              [min]="minDate"
+              [max]="maxDate"
+            >
+              <input
+                matStartDate
+                formControlName="startDate"
+                placeholder="From"
+                (click)="picker.open()"
+              />
+              <input
+                matEndDate
+                formControlName="endDate"
+                placeholder="To"
+                (click)="picker.open()"
+              />
+            </mat-date-range-input>
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-date-range-picker
+              #picker
+              disabled="false"
+            ></mat-date-range-picker>
+          </mat-form-field>
+        </form>
+      </mat-card-header>
+      <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z1">
+        <ng-container matColumnDef="sampleCollectedDate">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Date
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.sampleCollectedDate | date : "MM/dd/yyyy" }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quantityOfCases">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Number of Cases
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.quantityOfCases | number }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quantityByTestType">
+          <mat-header-cell *matHeaderCellDef>
+            Number of Cases by Type
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" class="p-2.5">
+            <div fxLayout="column">
+              <div
+                *ngFor="
+                  let testType of element.quantityByTestType | keyvalue;
+                  let i = index
+                "
+                fxLayout="row"
+                class="mb-2.5"
+              >
+                <div *ngIf="i % 2 === 0">
+                  <div class="mr-2.5">
+                    <span class="font-bold">{{ testType.key }}</span
+                    >: {{ asNumber(testType.value) | number }}
+                  </div>
+
+                  <div
+                    *ngIf="element.quantityByTestType[testType.key | nextKey]"
+                    class="mr-2.5"
+                  >
+                    <span class="font-bold">{{
+                      element.quantityByTestType[testType.key | nextKey].key
+                    }}</span
+                    >:
+                    {{
+                      asNumber(
+                        element.quantityByTestType[testType.key | nextKey].value
+                      ) | number
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+      <mat-card-actions>
+        <mat-paginator
+          [pageSizeOptions]="[10, 25, 50, 100]"
+          [pageSize]="10"
+          (page)="pageEventDocuments = $event"
+        ></mat-paginator>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

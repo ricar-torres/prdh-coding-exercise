@@ -1,0 +1,58 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+/node_modules
+
+# IDE - VSCode
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Yarn
+yarn-error.log
+
+# IDE - WebStorm/IntelliJ
+.idea/
+
+# log files
+*.log
+
+# Editor directories
+.idea
+.vscode
+
+# File locking
+yarn.lock
+
+# End-to-end test binaries (remove when starting a real project)
+/e2e/*.js
+/e2e/*.map
+
+# Local environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript type definition files (remove when starting a real project)
+*.d.ts
+
+WebApp/.angular/*
+# Angular/Webpack cache
+/.angular/cache/
